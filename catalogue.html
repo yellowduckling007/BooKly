@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue - Bookly</title>
+  <link rel="stylesheet" href="style_cat.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li onclick="showPanel('cse')">CSE</li>
+      <li onclick="showPanel('ece')">ECE</li>
+      <li onclick="showPanel('eee')">EEE</li>
+      <li onclick="showPanel('civil')">Civil</li>
+      <li><a href="cart.html">CART</a></li>
+    </ul>
+  </div>
+
+  <!-- Right side: Book Panels -->
+  <div class="catalogue-content">
+
+    <!-- CSE Panel -->
+    <div id="cse" class="book-panel active">
+      <h2>Computer Science Engineering</h2><br>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="algo.jpg" alt="Introduction to Algorithms"></div>
+        <div class="book-info">
+          <h3>Introduction to Algorithms</h3>
+          <p><strong>Author:</strong> Cormen</p>
+          <p><strong>Publisher:</strong> MIT Press</p>
+          <p><strong>Price:</strong> ₹900</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="os.jpg" alt="OS Concepts"></div>
+        <div class="book-info">
+          <h3>Operating System Concepts</h3>
+          <p><strong>Author:</strong> Silberschatz</p>
+          <p><strong>Publisher:</strong> Wiley</p>
+          <p><strong>Price:</strong> ₹850</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="db.jpg" alt="DBMS"></div>
+        <div class="book-info">
+          <h3>Database System Concepts</h3>
+          <p><strong>Author:</strong> Korth</p>
+          <p><strong>Publisher:</strong> McGraw Hill</p>
+          <p><strong>Price:</strong> ₹750</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="networks.jpg" alt="Computer Networks"></div>
+        <div class="book-info">
+          <h3>Computer Networks</h3>
+          <p><strong>Author:</strong> Tanenbaum</p>
+          <p><strong>Publisher:</strong> Pearson</p>
+          <p><strong>Price:</strong> ₹800</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="ds.jpg" alt="DS using C"></div>
+        <div class="book-info">
+          <h3>Data Structures Using C</h3>
+          <p><strong>Author:</strong> Reema Thareja</p>
+          <p><strong>Publisher:</strong> Oxford</p>
+          <p><strong>Price:</strong> ₹650</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECE Panel -->
+    <div id="ece" class="book-panel">
+      <h2>Electronics and Communication Engineering</h2><br>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="devices.jpg" alt="Electronic Devices and Circuits"></div>
+        <div class="book-info">
+          <h3>Electronic Devices</h3>
+          <p><strong>Author:</strong> Boylestad</p>
+          <p><strong>Publisher:</strong> Pearson</p>
+          <p><strong>Price:</strong> ₹750</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="digital.jpg" alt="Digital Design"></div>
+        <div class="book-info">
+          <h3>Digital Design</h3>
+          <p><strong>Author:</strong> M. Morris Mano</p>
+          <p><strong>Publisher:</strong> Pearson</p>
+          <p><strong>Price:</strong> ₹820</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="signals.jpg" alt="Signals and Systems"></div>
+        <div class="book-info">
+          <h3>Signals and Systems</h3>
+          <p><strong>Author:</strong> Alan V. Oppenheim</p>
+          <p><strong>Publisher:</strong> Pearson</p>
+          <p><strong>Price:</strong> ₹880</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="comms.jpg" alt="Communication Systems"></div>
+        <div class="book-info">
+          <h3>Communication Systems</h3>
+          <p><strong>Author:</strong> Simon Haykin</p>
+          <p><strong>Publisher:</strong> Wiley</p>
+          <p><strong>Price:</strong> ₹860</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EEE Panel -->
+    <div id="eee" class="book-panel">
+      <h2>Electrical and Electronics Engineering</h2><br>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="machines.jpg" alt="Electrical Machines"></div>
+        <div class="book-info">
+          <h3>Electrical Machines</h3>
+          <p><strong>Author:</strong> Nagrath</p>
+          <p><strong>Publisher:</strong> TMH</p>
+          <p><strong>Price:</strong> ₹680</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="powersys.jpg" alt="Power System Engineering"></div>
+        <div class="book-info">
+          <h3>Power System Engineering</h3>
+          <p><strong>Author:</strong> I.J. Nagrath</p>
+          <p><strong>Publisher:</strong> McGraw Hill</p>
+          <p><strong>Price:</strong> ₹790</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="control.jpg" alt="Control Systems"></div>
+        <div class="book-info">
+          <h3>Control Systems Engineering</h3>
+          <p><strong>Author:</strong> Norman Nise</p>
+          <p><strong>Publisher:</strong> Wiley</p>
+          <p><strong>Price:</strong> ₹850</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Civil Panel -->
+    <div id="civil" class="book-panel">
+      <h2>Civil Engineering</h2><br>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="soms.jpg" alt="Strength of Materials"></div>
+        <div class="book-info">
+          <h3>Strength of Materials</h3>
+          <p><strong>Author:</strong> R.K. Bansal</p>
+          <p><strong>Publisher:</strong> Laxmi Publications</p>
+          <p><strong>Price:</strong> ₹500</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="survey.jpg" alt="Surveying"></div>
+        <div class="book-info">
+          <h3>Surveying Vol 1</h3>
+          <p><strong>Author:</strong> B.C. Punmia</p>
+          <p><strong>Publisher:</strong> Laxmi Publications</p>
+          <p><strong>Price:</strong> ₹600</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="concrete.jpg" alt="Concrete Technology"></div>
+        <div class="book-info">
+          <h3>Concrete Technology</h3>
+          <p><strong>Author:</strong> M.S. Shetty</p>
+          <p><strong>Publisher:</strong> S. Chand</p>
+          <p><strong>Price:</strong> ₹720</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover"><img src="bm.jpg" alt="Building Materials"></div>
+        <div class="book-info">
+          <h3>Building Materials</h3>
+          <p><strong>Author:</strong> S.K. Duggal</p>
+          <p><strong>Publisher:</strong> New Age International</p>
+          <p><strong>Price:</strong> ₹650</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Panel Switch Script -->
+  <script>
+    function showPanel(id) {
+      document.querySelectorAll('.book-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

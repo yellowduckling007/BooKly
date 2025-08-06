@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1.jpg');
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: relative;
+}
+
+.logo {
+  font-size: 25px;
+}
+
+.menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  font-size: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+.menu ul li a:hover {
+  color: rgb(188, 73, 73);
+}
+
+.content {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.content h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.panel {
+  display: none;
+  text-align: center;
+  padding-top: 150px;
+}
+
+/* Active panel shown */
+.panel.active {
+  display: block;
+}
+
+.panel h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* Box styling around forms */
+.form-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px 40px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  width: 400px;
+}
+
+.form-box input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #c94c4c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background-color: #a03939;
+}
