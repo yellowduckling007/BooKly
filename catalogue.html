@@ -32,7 +32,7 @@
           <h3>Introduction to Algorithms</h3>
           <p><strong>Author:</strong> Cormen</p>
           <p><strong>Publisher:</strong> MIT Press</p>
-          <p><strong>Price:</strong> ₹900</p>
+          <p><strong>Price:</strong> 900</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -43,7 +43,7 @@
           <h3>Operating System Concepts</h3>
           <p><strong>Author:</strong> Silberschatz</p>
           <p><strong>Publisher:</strong> Wiley</p>
-          <p><strong>Price:</strong> ₹850</p>
+          <p><strong>Price:</strong> 850</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <h3>Database System Concepts</h3>
           <p><strong>Author:</strong> Korth</p>
           <p><strong>Publisher:</strong> McGraw Hill</p>
-          <p><strong>Price:</strong> ₹750</p>
+          <p><strong>Price:</strong> 750</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -65,7 +65,7 @@
           <h3>Computer Networks</h3>
           <p><strong>Author:</strong> Tanenbaum</p>
           <p><strong>Publisher:</strong> Pearson</p>
-          <p><strong>Price:</strong> ₹800</p>
+          <p><strong>Price:</strong> 800</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -76,7 +76,7 @@
           <h3>Data Structures Using C</h3>
           <p><strong>Author:</strong> Reema Thareja</p>
           <p><strong>Publisher:</strong> Oxford</p>
-          <p><strong>Price:</strong> ₹650</p>
+          <p><strong>Price:</strong> 650</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -92,7 +92,7 @@
           <h3>Electronic Devices</h3>
           <p><strong>Author:</strong> Boylestad</p>
           <p><strong>Publisher:</strong> Pearson</p>
-          <p><strong>Price:</strong> ₹750</p>
+          <p><strong>Price:</strong> 750</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -103,7 +103,7 @@
           <h3>Digital Design</h3>
           <p><strong>Author:</strong> M. Morris Mano</p>
           <p><strong>Publisher:</strong> Pearson</p>
-          <p><strong>Price:</strong> ₹820</p>
+          <p><strong>Price:</strong> 820</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -114,7 +114,7 @@
           <h3>Signals and Systems</h3>
           <p><strong>Author:</strong> Alan V. Oppenheim</p>
           <p><strong>Publisher:</strong> Pearson</p>
-          <p><strong>Price:</strong> ₹880</p>
+          <p><strong>Price:</strong> 880</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -125,7 +125,7 @@
           <h3>Communication Systems</h3>
           <p><strong>Author:</strong> Simon Haykin</p>
           <p><strong>Publisher:</strong> Wiley</p>
-          <p><strong>Price:</strong> ₹860</p>
+          <p><strong>Price:</strong> 860</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -141,7 +141,7 @@
           <h3>Electrical Machines</h3>
           <p><strong>Author:</strong> Nagrath</p>
           <p><strong>Publisher:</strong> TMH</p>
-          <p><strong>Price:</strong> ₹680</p>
+          <p><strong>Price:</strong> 680</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -152,7 +152,7 @@
           <h3>Power System Engineering</h3>
           <p><strong>Author:</strong> I.J. Nagrath</p>
           <p><strong>Publisher:</strong> McGraw Hill</p>
-          <p><strong>Price:</strong> ₹790</p>
+          <p><strong>Price:</strong> 790</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -163,7 +163,7 @@
           <h3>Control Systems Engineering</h3>
           <p><strong>Author:</strong> Norman Nise</p>
           <p><strong>Publisher:</strong> Wiley</p>
-          <p><strong>Price:</strong> ₹850</p>
+          <p><strong>Price:</strong> 850</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -179,7 +179,7 @@
           <h3>Strength of Materials</h3>
           <p><strong>Author:</strong> R.K. Bansal</p>
           <p><strong>Publisher:</strong> Laxmi Publications</p>
-          <p><strong>Price:</strong> ₹500</p>
+          <p><strong>Price:</strong> 500</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -190,7 +190,7 @@
           <h3>Surveying Vol 1</h3>
           <p><strong>Author:</strong> B.C. Punmia</p>
           <p><strong>Publisher:</strong> Laxmi Publications</p>
-          <p><strong>Price:</strong> ₹600</p>
+          <p><strong>Price:</strong> 600</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -201,7 +201,7 @@
           <h3>Concrete Technology</h3>
           <p><strong>Author:</strong> M.S. Shetty</p>
           <p><strong>Publisher:</strong> S. Chand</p>
-          <p><strong>Price:</strong> ₹720</p>
+          <p><strong>Price:</strong> 720</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -212,7 +212,7 @@
           <h3>Building Materials</h3>
           <p><strong>Author:</strong> S.K. Duggal</p>
           <p><strong>Publisher:</strong> New Age International</p>
-          <p><strong>Price:</strong> ₹650</p>
+          <p><strong>Price:</strong> 650</p>
           <button>Add to Cart</button>
         </div>
       </div>
@@ -228,6 +228,40 @@
       });
       document.getElementById(id).classList.add('active');
     }
+    // Function to add book to cart
+  function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.quantity += 1;
+      existing.amount = existing.price * existing.quantity;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        quantity: 1,
+        amount: price
+      });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${name} added to cart!`);
+  }
+
+  // Attach event listeners to all Add to Cart buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.book-card button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        let info = btn.closest('.book-info');
+        let name = info.querySelector('h3').innerText;
+        let priceText = info.querySelectorAll('p')[2].innerText;
+        let price = parseInt(priceText.replace(/\D/g, ''));
+        addToCart(name, price);
+      });
+    });
+  });
+
   </script>
 
 </body>
