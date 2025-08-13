@@ -68,7 +68,7 @@
 .panel {
   display: none;
   text-align: center;
-  padding-top: 150px;
+  padding-top: 50px;
 }
 
 /* Active panel shown */
@@ -114,4 +114,16 @@
 
 .form-box button:hover {
   background-color: #a03939;
+}
+
+.form-box input[type="radio"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+
+.form-box input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
 }
