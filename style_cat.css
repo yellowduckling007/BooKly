@@ -64,6 +64,13 @@
     .book-panel.active {
       display: block;
     }
+    
+    .list{
+      padding-top:50px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:20px;
+    }
 
     .book-card {
       display: flex;
