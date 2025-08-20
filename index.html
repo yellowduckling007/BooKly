@@ -50,22 +50,31 @@
       <h2>Register</h2>
       <div class="form-box">
         <form id="registration_form">
-
+          <br>
           <input id="name" type="text" placeholder="Full Name" required />
-          <p id=errormsg_name style="color: rgb(253, 253, 253) ; font-size: 15px ;margin-bottom: 10px;"></p>
+          <p id=errormsg_name class="error" style="color: #f6ff00 ; font-size: 15px ;margin-bottom: 10px;"></p>
 
           <input id="email" type="email" placeholder="Email" required />
-          <p id=errormsg_em style="color: rgb(253, 253, 253) ; font-size: 15px ;margin-bottom: 10px;"></p>
+          <p id=errormsg_em class="error" style="color: #f6ff00 ; font-size: 15px ;margin-bottom: 10px;"></p>
 
-          <input id="password" type="password" placeholder="Password" required />
-          <p id=errormsg_pwd style="color: rgb(253, 253, 253) ; font-size: 15px ;margin-bottom: 10px;"></p>
+         <div class="password-wrapper">
+            <input id="password" type="password" placeholder="Password" required />
+            <span id="togglePwd" class="toggle-eye">🔒</span>
+          </div>
+          <p id=errormsg_pwd class="error" style="color:#f6ff00 ; font-size: 15px ;margin-bottom: 10px;"></p>
+
+          <div id="strength-bar"><div id="strength-fill"></div></div>
+          <p id="strength-text"></p>
           
-          <input id="confirmpwd" type="password" placeholder="Confirm password" required />
-          <p id=errormsg_pwdcf style="color: rgb(253, 253, 253) ; font-size: 15px ;margin-bottom: 10px;"></p>
+          <div class="password-wrapper">
+            <input id="confirmpwd" type="password" placeholder="Confirm password" required />
+            <span id="toggleConfirm" class="toggle-eye">🔒</span>
+          </div>
+          <p id=errormsg_pwdcf class="error" style="color:#f6ff00 ; font-size: 15px ;margin-bottom: 10px;"></p>
           
-          <input id="number" type="tel" placeholder="phone number" pattern="[0-9]{10}" required />
-          
-          sex :
+          <input id="number" type="tel" placeholder="phone number" required />
+          <p id=errormsg_number class="error" style="color: #f6ff00; font-size: 15px ;margin-bottom: 10px;"></p>
+
           <label><input type="radio" name="sex" value="female"> Female</label>
           <label><input type="radio" name="sex" value="male"> Male</label><br>
           
@@ -105,21 +114,25 @@
             }
             </script>
           </select>
+          <p id="errormsg_dob" class="error"></p>
                 
-          <br><br>languages known:<br>
+          <br>languages known:<br><br>
           <input type="checkbox" id="english" name="english"> english
           <input type="checkbox" id="telugu" name="telugu"> telugu
           <input type="checkbox" id="hindi" name="hindi"> hindi
           <input type="checkbox" id="tamil" name="tamil">tamil <br>
         
-          address:<br>
+          <br>
           <textarea id="address" name="address" rows="3" cols="42" placeholder="Enter your address here..." required></textarea><br><br>
+          <p id="errormsg_address" class="error" style="color:#f6ff00 ; font-size: 15px ;margin-bottom: 10px;"></p>
 
          <button type="submit">Register</button>
         </form>
-        <p id=errormsg style="color: rgb(253, 253, 253) ; font: size 16px ;"></p>
+        <p id="errormsg" style="font-size:16px; color:#f6ff00; "></p>
       </div>
     </div>
+
+
 
   <script>
   function showPanel(id) {
@@ -128,72 +141,206 @@
     });
     document.getElementById(id).classList.add('active');
   }
-  
-  const form=document.getElementById("registration_form")
-  const errormsg=document.getElementById("errormsg")
 
+  const form = document.getElementById("registration_form");
+
+  // NAME VALIDATION
   const nameInput = document.getElementById("name");
-  nameInput.addEventListener("blur",function(){
-    const name=nameInput.value.trim();
-    //name validation
-    const namepattern=/^[a-zA-Z\s]+$/;
-    if (!namepattern.test(name)){
-      errormsg_name.textContent="name should only contain alphabets and spaces !";
+  nameInput.addEventListener("blur", function () {
+    const name = nameInput.value.trim();
+    if (name === "") {
+      errormsg_name.textContent = "";
       return;
     }
-    if (name.length<4){
-      errormsg_name.textContent="Length of your name should not be less than 4 characters!";
+    const namepattern = /^[a-zA-Z\s]+$/;
+    if (!namepattern.test(name)) {
+      errormsg_name.textContent = "Name should only contain alphabets and spaces!";
       return;
     }
-    errormsg_name.textContent="";
-
+    if (name.length < 4) {
+      errormsg_name.textContent = "Name should not be less than 4 characters!";
+      return;
+    }
+    errormsg_name.textContent = "";
   });
 
+  // PASSWORD VALIDATION + STRENGTH
+  const pwdInput = document.getElementById("password");
+  const strengthBar = document.getElementById("strength-bar");
+  const strengthFill = document.getElementById("strength-fill");
+  const strengthText = document.getElementById("strength-text");
+
+  pwdInput.addEventListener("focus", () => {
+    strengthBar.style.display = "block";
+    strengthText.style.display = "block";
+  });
+
+  pwdInput.addEventListener("blur", function () {
+    const pwd = pwdInput.value.trim();
+    if (pwd === "") {
+      errormsg_pwd.textContent = "";
+      strengthBar.style.display = "none";
+      strengthText.style.display = "none";
+      return;
+    }
+    if (pwd.includes(" ")) {
+      errormsg_pwd.textContent = "No spaces allowed!";
+      return;
+    }
+    if (!/[A-Z]/.test(pwd) || !/[a-z]/.test(pwd) || !/[0-9]/.test(pwd)) {
+      errormsg_pwd.textContent = "Must contain uppercase, lowercase and a number!";
+      return;
+    }
+    if (!/[!@#$%&*?]/.test(pwd)) {
+      errormsg_pwd.textContent = "Must contain at least one special character (!@#$%&*?)!";
+      return;
+    }
+    if (pwd.length < 6) {
+      errormsg_pwd.textContent = "Password must be at least 6 characters!";
+      return;
+    }
+    errormsg_pwd.textContent = "";
+  });
+
+  pwdInput.addEventListener("input", function () {
+    const pwd = pwdInput.value.trim();
+    let strength = 0;
+    if (pwd.length >= 6) strength++;
+    if (/[A-Z]/.test(pwd)) strength++;
+    if (/[a-z]/.test(pwd)) strength++;
+    if (/[0-9]/.test(pwd)) strength++;
+    if (/[!@#$%&*?]/.test(pwd)) strength++;
+
+    let colors = ["red", "orange", "yellowgreen", "green", "darkgreen"];
+    let texts = ["Very Weak", "Weak", "Medium", "Strong", "Very Strong"];
+
+    strengthFill.style.width = (strength * 20) + "%";
+    strengthFill.style.background = colors[strength - 1] || "transparent";
+    strengthText.textContent = texts[strength - 1] || "";
+  });
+
+  // CONFIRM PASSWORD
+  const confirmpwdInput = document.getElementById("confirmpwd");
+  confirmpwdInput.addEventListener("blur", function () {
+    const confirmpwd = confirmpwdInput.value.trim();
+    const pwd = pwdInput.value.trim();
+    if (confirmpwd === "") {
+      errormsg_pwdcf.textContent = "";
+      return;
+    }
+    if (confirmpwd !== pwd) {
+      errormsg_pwdcf.textContent = "Passwords do not match!";
+      return;
+    }
+    errormsg_pwdcf.textContent = "";
+  });
+
+  // EMAIL VALIDATION
+  const emailInput = document.getElementById("email");
+  emailInput.addEventListener("blur", function () {
+    const email = emailInput.value.trim();
+    if (email === "") {
+      errormsg_em.textContent = "";
+      return;
+    }
+    const emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailpattern.test(email)) {
+      errormsg_em.textContent = "Invalid email format!";
+      return;
+    }
+    errormsg_em.textContent = "";
+  });
+
+  // PHONE VALIDATION
+  const numberInput = document.getElementById("number");
+  numberInput.addEventListener("blur", function () {
+    const number = numberInput.value.trim();
+    if (number === "") {
+      errormsg_number.textContent = "";
+      return;
+    }
+    const numberpattern = /^[0-9]{10}$/;
+    if (!numberpattern.test(number)) {
+      errormsg_number.textContent = "Phone number should be 10 digits!";
+      return;
+    }
+    if (number.startsWith("0")) {
+      errormsg_number.textContent = "Phone number should not start with 0!";
+      return;
+    }
+    if (/^0{10}$/.test(number)) {
+      errormsg_number.textContent = "Phone number should not be all zeros!";
+      return;
+    }
+    errormsg_number.textContent = "";
+  });
+
+  function setupToggle(inputId, toggleId) {
+    const input = document.getElementById(inputId);
+    const toggle = document.getElementById(toggleId);
+    toggle.addEventListener("click", () => {
+      if (input.type === "password") {
+        input.type = "text";
+        toggle.textContent = "🔓";
+      } else {
+        input.type = "password";
+        toggle.textContent = "🔒";
+      }
+    });
+  }
+  setupToggle("password", "togglePwd");
+  setupToggle("confirmpwd", "toggleConfirm");
 
   form.addEventListener("submit",function(event){
     event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmpwd = document.getElementById("confirmpwd").value;
-    const number = documnet.getElementById("number").value;
-    const sexRadio = document.getElementsByName("sex");
-    let sexValue= "";
-    for(const radio of sexRadio){
-      if (radio.checked){
-        sexValue=radio.value;
-        break;
+    let valid = true;
+
+    // Address validation
+    const address=document.getElementById("address").value.trim();
+    if(address.length < 10){
+      document.getElementById("errormsg_address").textContent = "Address must be at least 10 characters!";
+      valid=false;
+    } else {
+      document.getElementById("errormsg_address").textContent = "";
+    }
+
+    // DOB validation
+    const day=document.querySelector('select[name="dob_day"]').value;
+    const month=document.querySelector('select[name="dob_month"]').value;
+    const year=document.querySelector('select[name="dob_year"]').value;
+    if(day && month && year){
+      const maxDays = new Date(year, month, 0).getDate();
+      if(day > maxDays){
+        document.getElementById("errormsg_dob").textContent = "Invalid date!";
+        valid=false;
+      } else {
+        document.getElementById("errormsg_dob").textContent = "";
       }
     }
 
-    const day=document.querySelector('select[name="dob_day"]').value;
-    const month=document.querySelector('select[name=dob_month]').value;
-    const year=document.querySelector('select[name="dob_year"]').value;
+    // Check if any other errors exist
+    document.querySelectorAll("p.error").forEach(p=>{
+      if(p.textContent!=="") valid=false;
+    });
 
-    const langs=[];
-    if (document.getElementById("english").checked) langs.push("english");
-    if (document.getElementById("telugu").checked) langs.push("telugu");
-    if (document.getElementById("hindi").checked) langs.push("hindi");
-    if (document.getElementById("tamil").checked) langs.push("tamil");
-    
-    const address=document.getElementById("address").value.trim();
-
-    errormsg.textContent="";
-    
-    
-
-    //password validation
-    if(password.length<6){
-      errormsg.textContent="Password should not be less than 6 characters!";
-      return;
-    }
-    if(password.includes(" ")){
-      errormsg.textContent="Password should not contain spaces";
+    const msg = document.getElementById("errormsg");
+    if(!valid){
+      msg.textContent = "Please fix the errors above!";
+      msg.style.color = "red";
       return;
     }
 
+    // SUCCESS
+    msg.textContent = "Form submitted successfully!";
+    msg.style.color = "limegreen";
 
-  })
+    setTimeout(() => {
+      form.reset();
+      document.querySelectorAll("p.error").forEach(p => p.textContent = "");
+      msg.textContent = "";
+    }, 1500);
+  });
 
 
 </script>
