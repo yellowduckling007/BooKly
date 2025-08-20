@@ -339,6 +339,10 @@
       form.reset();
       document.querySelectorAll("p.error").forEach(p => p.textContent = "");
       msg.textContent = "";
+      strengthBar.style.display = "none";
+      strengthText.style.display = "none";
+      strengthFill.style.width = "0%";
+
     }, 1500);
   });
 
@@ -348,3 +352,4 @@
 
 </body>
 </html>
+
