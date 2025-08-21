@@ -68,7 +68,7 @@
 .panel {
   display: none;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 150px;
 }
 
 /* Active panel shown */
@@ -308,6 +308,7 @@
   width: auto;
   margin-right: 5px;
 }
+
 
 
 
