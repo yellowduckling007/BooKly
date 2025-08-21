@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div class="main">
+<div class="main">
     <div class="nav">
       <div class="logo">
         <h2>🅱🅾🅾🄺ˡʸ</h2>
@@ -131,10 +131,18 @@
         <p id="errormsg" style="font-size:16px; color:#f6ff00; "></p>
       </div>
     </div>
-
+</div>
 
 
   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const loginFlag = urlParams.get('login');
+  if (loginFlag === '1') {
+    showPanel('login');
+  }
+});
+
   function showPanel(id) {
     document.querySelectorAll('.panel').forEach(panel => {
       panel.classList.remove('active');
